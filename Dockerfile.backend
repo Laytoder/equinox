@@ -1,0 +1,20 @@
+FROM node:18.12.1
+
+RUN npm install -g pnpm
+
+RUN mkdir -p /usr/src/app/backend
+
+RUN mkdir -p /usr/src/app/common
+
+COPY ./backend/package.json /usr/src/app/backend
+
+WORKDIR /usr/src/app/backend
+
+RUN pnpm i
+
+COPY ./backend /usr/src/app/backend
+COPY ./common /usr/src/app/common
+
+EXPOSE 8080
+
+ENTRYPOINT [ "pnpm", "dev" ]

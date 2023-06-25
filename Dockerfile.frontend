@@ -1,0 +1,17 @@
+FROM node:18.12.1
+
+RUN npm install -g pnpm
+
+RUN mkdir -p /usr/src/app/frontend
+
+COPY ./frontend/package.json /usr/src/app/frontend
+
+WORKDIR /usr/src/app/frontend
+
+RUN pnpm i
+
+COPY ./frontend /usr/src/app/frontend
+
+EXPOSE 8000
+
+ENTRYPOINT [ "pnpm", "dev" ]
