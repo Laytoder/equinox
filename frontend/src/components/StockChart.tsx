@@ -6,7 +6,9 @@ import Highcharts from "highcharts/highstock";
 import style from "./StockChart.module.css";
 
 const StockChart: React.FC = () => {
-  const socketUrl = "ws://3.139.82.162:8080";
+  // uncomment if running docker-compose
+  // const socketUrl = "ws://localhost:8080";
+  const socketUrl = "wss://equinox-xd8p.onrender.com";
   const [fundData, setFundData] = useState<[number, number][][] | null>(null);
   const { lastMessage } = useWebSocket(socketUrl);
 
