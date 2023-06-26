@@ -23,6 +23,7 @@ const StockChart: React.FC = () => {
         const newValue: number = messageData["newValue"];
 
         fundData![fundIdx].push([unixDate, newValue]);
+        setFundData(fundData);
       }
     }
   }, [lastMessage]);
@@ -30,7 +31,7 @@ const StockChart: React.FC = () => {
   return fundData ? (
     <div>
       {fundData.map((fund, i) => (
-        <div className={style.chart}>
+        <div key={i} className={style.chart}>
           <HighchartsReact
             highcharts={Highcharts}
             constructorType={"stockChart"}
