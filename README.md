@@ -1,14 +1,46 @@
 # Equinox
 
-Equinox is an automated index fund generator designed to analyze stocks in the stock market and create diversified funds using the [K-means clustering algorithm](https://en.wikipedia.org/wiki/K-means_clustering) and the [Markowitz portfolio theory](https://en.wikipedia.org/wiki/Modern_portfolio_theory). By clustering similar stocks together, Equinox aims to capture the trends of constituent stocks within a fund. Additionally, the utilization of Markowitz portfolio theory ensures the generation of funds with lower risk and potentially higher returns.
+Equinox is an index fund generator designed to analyze stocks in the stock market and create diversified funds using the [K-means clustering algorithm](https://en.wikipedia.org/wiki/K-means_clustering) and the [Markowitz portfolio theory](https://en.wikipedia.org/wiki/Modern_portfolio_theory). By clustering similar stocks together, Equinox aims to capture the trends of constituent stocks within a fund. Additionally, the utilization of Markowitz portfolio theory ensures the generation of funds with lower risk and potentially higher returns.
 
 ## Key Features
 
-- Automated index fund generation based on stock market analysis.
+- Index fund generation based on stock market analysis.
 - Utilization of K-means clustering to group similar stocks together within a fund.
 - Assignment of weights to stocks in a cluster/fund using the Markowitz portfolio theory.
 - Proper diversification of funds to manage risk effectively.
-- Flexibility to specify desired levels of risk and returns using the Markowitz portfolio theory.
+
+## Fund Generation
+
+Funds have already been generated and can be cloned directly from the repository. However, if you want to regenerate the funds, here are the steps.
+
+1. Generate your `<API KEY>` and `<API SECRET>` from the [Alpaca API](https://alpaca.markets/) and paste them in [credentials.json](/common/credentials.json):
+
+   ```bash
+   {
+     "apiKey": "<API KEY>",
+     "apiSecret": "<API SECRET>",
+     "paper": false
+   }
+
+3. In a console, navigate to the `fund_gen` directory:
+
+   ```bash
+   cd fund_gen
+
+4. Install the required python libraries:
+
+   ```bash
+   pip3 install -r requirements.txt
+
+5. Generate stock_data.json and wait from the script to finish running, you can modify the years of historic data generated in [config.py](/fund_gen/config.py):
+
+   ```bash
+   python3 data_gen/gen_stock_data.py
+
+5. Generate funds and wait for the script to finish running, you can modify the number of funds generated in [config.py](/fund_gen/config.py):
+
+   ```bash
+   python3 gen_funds.py
 
 ## Execution
 
