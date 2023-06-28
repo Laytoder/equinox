@@ -1,6 +1,19 @@
 # Equinox
 
+**DISCLAIMER:** 
+Invest in the funds listed in the project at your own risk. This disclaimer serves as a reminder that investing in any financial instrument involves inherent risks, and it is important to carefully consider your investment decisions. The information provided in this project does not constitute financial advice, and you should consult with a qualified professional before making any investment decisions. The project creators and contributors are not responsible for any losses, damages, or unfavorable outcomes resulting from your investment activities. Please conduct thorough research and exercise caution when investing.
+
+## Description
+
 Equinox is an index fund generator designed to analyze stocks in the stock market and create diversified funds using the [K-means clustering algorithm](https://en.wikipedia.org/wiki/K-means_clustering) and the [Markowitz portfolio theory](https://en.wikipedia.org/wiki/Modern_portfolio_theory). By clustering similar stocks together, Equinox aims to capture the trends of constituent stocks within a fund. Additionally, the utilization of Markowitz portfolio theory ensures the generation of funds with lower risk and potentially higher returns.
+
+## Live Demo
+
+I am working on a live demo that streams real-time valuations for the equinox funds. The real-time streaming isn't active yet but will be very soon. However, plots for historic valuations of the funds are available in the live demo [here](https://laytoder.github.io/equinox/). 
+
+- For demonstration purposes, the Live Demo and the project contains the generated funds that don't produce net returns. 4 out of 8 generated funds in the demo produce net returns with the following fund performing the best:
+
+![Screen_Shot_2023-06-27_at_3 58 35_AM-removebg](https://github.com/Laytoder/equinox/assets/49199047/d44cd26b-3f36-431d-9cfa-8be8e0fa35d0)
 
 ## Key Features
 
@@ -81,10 +94,6 @@ To run the Equinox project, follow these steps:
 
    ```bash
    docker-compose up -d
-
-## Live Demo
-
-A live version of the Equinox project is available [here](https://laytoder.github.io/equinox/). 
 
 ## Additional Resources
 
