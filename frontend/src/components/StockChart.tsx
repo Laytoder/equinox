@@ -1,32 +1,34 @@
-import React, { useEffect, useState } from "react";
-import useWebSocket from "react-use-websocket";
+// import React, { useEffect, useState } from "react";
+import React from "react";
+// import useWebSocket from "react-use-websocket";
 import chartConfig from "./chartConfigUtil";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts/highstock";
 import style from "./StockChart.module.css";
+import fundData from "../fund_data.json";
 
 const StockChart: React.FC = () => {
   // uncomment if running docker-compose
   // const socketUrl = "ws://localhost:8080";
-  const socketUrl = "wss://equinox-xd8p.onrender.com";
-  const [fundData, setFundData] = useState<[number, number][][] | null>(null);
-  const { lastMessage } = useWebSocket(socketUrl);
+  // const socketUrl = "wss://equinox-xd8p.onrender.com";
+  // const [fundData, setFundData] = useState<[number, number][][] | null>(null);
+  // const { lastMessage } = useWebSocket(socketUrl);
 
-  useEffect(() => {
-    if (lastMessage !== null) {
-      const messageData = JSON.parse(lastMessage.data);
-      const messageType = messageData["messageType"];
-      if (messageType == "Fund Data") setFundData(messageData["fundData"]);
-      else {
-        const fundIdx: number = messageData["fundIdx"];
-        const unixDate: number = messageData["unixDate"];
-        const newValue: number = messageData["newValue"];
+  // useEffect(() => {
+  //   if (lastMessage !== null) {
+  //     const messageData = JSON.parse(lastMessage.data);
+  //     const messageType = messageData["messageType"];
+  //     if (messageType == "Fund Data") setFundData(messageData["fundData"]);
+  //     else {
+  //       const fundIdx: number = messageData["fundIdx"];
+  //       const unixDate: number = messageData["unixDate"];
+  //       const newValue: number = messageData["newValue"];
 
-        fundData![fundIdx].push([unixDate, newValue]);
-        setFundData(fundData);
-      }
-    }
-  }, [lastMessage]);
+  //       fundData![fundIdx].push([unixDate, newValue]);
+  //       setFundData(fundData);
+  //     }
+  //   }
+  // }, [lastMessage]);
 
   return fundData ? (
     <div>
